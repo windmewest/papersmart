@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-submission"
+  short_description: "Prepare journal submission packages"
+  default_prompt: "Use $papersmart-submission to prepare a journal submission package from a PaperSmart manuscript."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-outline"
+  short_description: "Build evidence-grounded manuscript outlines"
+  default_prompt: "Use $papersmart-outline to create an evidence-grounded outline for the active PaperSmart project."

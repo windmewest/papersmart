@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-translation"
+  short_description: "Translate manuscripts into Chinese academic prose"
+  default_prompt: "Use $papersmart-translation to create a polished Chinese academic version of a PaperSmart manuscript."

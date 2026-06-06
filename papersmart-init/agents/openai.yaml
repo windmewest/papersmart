@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-init"
+  short_description: "Initialize PaperSmart projects and dependencies"
+  default_prompt: "Use $papersmart-init to initialize a reusable PaperSmart workspace and install companion skills."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-draft"
+  short_description: "Draft manuscripts from PaperSmart materials"
+  default_prompt: "Use $papersmart-draft to generate a full manuscript from the active PaperSmart project materials."

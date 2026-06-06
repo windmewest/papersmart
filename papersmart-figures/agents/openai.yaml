@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-figures"
+  short_description: "Plan and generate manuscript-ready figures"
+  default_prompt: "Use $papersmart-figures to plan or generate manuscript-ready figures for a PaperSmart project."

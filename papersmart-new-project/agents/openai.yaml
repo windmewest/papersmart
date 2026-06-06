@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-new-project"
+  short_description: "Create a new PaperSmart project folder"
+  default_prompt: "Use $papersmart-new-project to create a new manuscript project in the PaperSmart workspace."

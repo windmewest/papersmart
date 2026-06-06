@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-revision"
+  short_description: "Apply local manuscript revisions safely"
+  default_prompt: "Use $papersmart-revision to apply focused revisions to an existing PaperSmart manuscript."
