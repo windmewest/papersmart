@@ -233,4 +233,4 @@ PaperSmart keeps these boundaries strict:
 
 ## License
 
-Add a license before public release.
+Help you help me
