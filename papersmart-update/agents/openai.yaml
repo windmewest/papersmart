@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-update"
+  short_description: "Safely update an existing PaperSmart workspace"
+  default_prompt: "Use $papersmart-update to safely update this PaperSmart workspace to the current folder structure without overwriting existing project files."

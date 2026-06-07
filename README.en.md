@@ -13,6 +13,7 @@ Use it when a paper has more than a single draft file: data tables, figures, jou
 | Skill | Use it when | Main output |
 | --- | --- | --- |
 | [`PaperSmart-init`](papersmart-init/SKILL.md) | You are setting up a workspace for the first time | Workspace folders, language profile, templates, and optional companion skills |
+| [`PaperSmart-update`](papersmart-update/SKILL.md) | PaperSmart has changed and an existing workspace needs the current structure | Missing folders/templates, preserved files, migration notes, update report |
 | [`PaperSmart-new-project`](papersmart-new-project/SKILL.md) | You are starting a new manuscript project | A new `paper_XX_slug` project folder |
 | [`PaperSmart-outline`](papersmart-outline/SKILL.md) | You need the argument before drafting | Thesis, section plan, evidence plan, figure and table plan |
 | [`PaperSmart-draft`](papersmart-draft/SKILL.md) | You need a full draft or major rewrite | Manuscript plus analysis, literature, visualization, and claim-source files |
@@ -130,11 +131,27 @@ PaperSmart/
 | `logs/` or `日志/` | Writing and decision logs | Data files or submission packages |
 | `shared/` or `共享/` | Reusable documentation, prompts, tools, skills, memory | Single-paper project materials |
 
+## Updating Existing Workspaces
+
+Use `PaperSmart-update` after pulling a newer PaperSmart release. It upgrades the folder contract without damaging existing work.
+
+```text
+Use $papersmart-update to safely update this PaperSmart workspace.
+```
+
+The updater creates missing folders and missing template files. It preserves existing project files, source materials, outputs, memory, shared resources, revision records, and submission packages. Start with a dry run when you want to inspect the planned changes first.
+
+```bash
+python shared/skills/papersmart-update/scripts/update_papersmart.py --workspace . --dry-run
+```
+
 ## Workflow
 
 ```mermaid
 flowchart LR
-  A["PaperSmart-init<br/>workspace setup"] --> B["PaperSmart-new-project<br/>new paper"]
+  A["PaperSmart-init<br/>workspace setup"] --> U["PaperSmart-update<br/>safe structure upgrades"]
+  A --> B["PaperSmart-new-project<br/>new paper"]
+  U --> B
   B --> C["Draft/source folder"]
   B --> D["Reference folder<br/>journal, literature, writing samples"]
   C --> E["PaperSmart-outline<br/>argument and evidence plan"]
@@ -155,6 +172,7 @@ Copy the `papersmart-*` folders into your assistant's local skills directory, th
 ```text
 <skills-dir>/
   papersmart-init/
+  papersmart-update/
   papersmart-new-project/
   papersmart-outline/
   papersmart-draft/
@@ -183,6 +201,10 @@ cp -R papersmart-* "<skills-dir>/"
 
 ```text
 Use $papersmart-init to initialize a PaperSmart workspace.
+```
+
+```text
+Use $papersmart-update to safely update an existing PaperSmart workspace after pulling a newer release.
 ```
 
 ```text

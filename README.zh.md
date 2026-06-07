@@ -1,6 +1,6 @@
 # PaperSmart 技能
 
-[English](README.en.md)
+[English](README.md)
 
 ![PaperSmart workflow](assets/papersmart-hero.png)
 
@@ -13,6 +13,7 @@ PaperSmart 是一组用于科研论文项目的可复用技能。它不是“一
 | 技能 | 什么时候用 | 主要输出 |
 | --- | --- | --- |
 | [`PaperSmart-init`](papersmart-init/SKILL.md) | 第一次搭建工作区 | 工作区目录、语言配置、模板、可选配套技能 |
+| [`PaperSmart-update`](papersmart-update/SKILL.md) | PaperSmart 升级后，需要更新既有工作区结构 | 缺失目录和模板、保留记录、迁移说明、更新报告 |
 | [`PaperSmart-new-project`](papersmart-new-project/SKILL.md) | 开始新的论文项目 | 新的 `paper_XX_slug` 项目文件夹 |
 | [`PaperSmart-outline`](papersmart-outline/SKILL.md) | 正式起草前梳理论证 | 核心论点、章节计划、证据计划、图表计划 |
 | [`PaperSmart-draft`](papersmart-draft/SKILL.md) | 生成全文初稿或大幅重写 | 正文，以及分析、文献、可视化、主张来源文件 |
@@ -130,11 +131,27 @@ PaperSmart/
 | `logs/` 或 `日志/` | 写作过程和重要决策 | 数据文件或投稿包 |
 | `shared/` 或 `共享/` | 跨项目文档、提示、工具、技能、记忆 | 单篇论文材料 |
 
+## 更新既有工作区
+
+拉取新版 PaperSmart 后，使用 `PaperSmart-update` 更新既有工作区。它只补齐当前版本需要的目录和模板，不破坏已有项目文件。
+
+```text
+使用 $papersmart-update 安全更新当前 PaperSmart 工作区。
+```
+
+更新脚本会创建缺失的文件夹和缺失模板，并保留已有项目文件、原始材料、输出、memory、shared 资源、修订记录和投稿包。需要先检查计划时，先运行 dry run。
+
+```bash
+python shared/skills/papersmart-update/scripts/update_papersmart.py --workspace . --dry-run
+```
+
 ## 工作流程
 
 ```mermaid
 flowchart LR
-  A["PaperSmart-init<br/>工作区初始化"] --> B["PaperSmart-new-project<br/>新论文项目"]
+  A["PaperSmart-init<br/>工作区初始化"] --> U["PaperSmart-update<br/>安全结构更新"]
+  A --> B["PaperSmart-new-project<br/>新论文项目"]
+  U --> B
   B --> C["草稿/原始材料"]
   B --> D["参考材料<br/>期刊、文献、写作样本"]
   C --> E["PaperSmart-outline<br/>论证和证据计划"]
@@ -155,6 +172,7 @@ flowchart LR
 ```text
 <skills-dir>/
   papersmart-init/
+  papersmart-update/
   papersmart-new-project/
   papersmart-outline/
   papersmart-draft/
@@ -183,6 +201,10 @@ cp -R papersmart-* "<skills-dir>/"
 
 ```text
 使用 $papersmart-init 初始化 PaperSmart 工作区。
+```
+
+```text
+使用 $papersmart-update 在拉取新版后安全更新既有 PaperSmart 工作区。
 ```
 
 ```text
