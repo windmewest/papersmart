@@ -2,5 +2,6 @@
 Thumbs.db
 *.tmp
 *.log
+README.pdf
 __pycache__/
 *.pyc

@@ -9,6 +9,15 @@ description: Prepare PaperSmart journal submission packages from a completed man
 
 Package a finished PaperSmart manuscript for journal submission. This skill organizes and verifies submission materials; it does not invent missing author, ethics, funding, conflict, permission, or journal metadata.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. If `language` is `zh`, use Chinese folder names and answer in Chinese. If no profile exists, assume English mode.
+
 ## Required Reading
 
 Read from the active project:
@@ -17,11 +26,14 @@ Read from the active project:
 2. `02_reference/style_notes.md`
 3. `02_reference/reference_index.md`
 4. `02_reference/target_journal` files relevant to submission
-5. `03_output/manuscript/paper.md`
-6. `03_output/tables`
-7. `03_output/figures`
-8. `03_output/supplement/claim_source_map.md`, if present
-9. `03_output/revision/change_log.md`
+5. `02_reference/writing_samples` when submission tone or format needs style comparison
+6. `03_output/manuscript/paper.md`
+7. `03_output/tables`
+8. `03_output/figures`
+9. `03_output/supplement/claim_source_map.md`, if present
+10. `03_output/revision/change_log.md`
+
+In Chinese mode, use the equivalent configured paths.
 
 ## Workflow
 

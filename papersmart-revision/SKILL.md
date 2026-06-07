@@ -11,6 +11,15 @@ Handle local manuscript changes after a draft exists. Keep the change scoped to 
 
 Use `PaperSmart-draft` instead when the user asks for a full manuscript, a major rewrite of the argument, or new Results based on unaudited data.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. If `language` is `zh`, use Chinese folder names and answer in Chinese. If no profile exists, assume English mode.
+
 ## Required Reading
 
 Read from the active project:
@@ -20,6 +29,8 @@ Read from the active project:
 3. `config/project_config.md`
 4. `02_reference/style_notes.md`
 5. Any affected table, figure, caption, data, literature, or reference file
+
+In Chinese mode, use the equivalent configured paths.
 
 If the task references reviewer comments or an editor decision letter, read those files before editing.
 

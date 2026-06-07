@@ -9,9 +9,18 @@ description: Generate or substantially revise full PaperSmart manuscripts from a
 
 Draft a complete, traceable, journal-aware manuscript from PaperSmart materials. The draft must be evidence-driven: read sources first, plan analysis and visualization before Results, then write.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. If `language` is `zh`, use Chinese folder names and answer in Chinese. If no profile exists, assume English mode.
+
 ## Project Selection
 
-1. Identify the active project under `projects/`.
+1. Identify the active project under the configured project root.
 2. If the user names a project, use it.
 3. If only one project exists, use it.
 4. If multiple projects exist and the intended project is unclear, ask before writing.
@@ -25,7 +34,9 @@ Read in this order before generating or revising a full manuscript:
 3. `01_draft/data_inventory.md`
 4. `02_reference/style_notes.md`
 5. `02_reference/reference_index.md`
-6. Specific drafts, outlines, notes, data files, tables, figures, images, target-journal materials, citation files, and reference PDFs needed for the task
+6. Specific drafts, outlines, notes, data files, tables, figures, images, target-journal materials, writing samples, citation files, and reference PDFs needed for the task
+
+In Chinese mode, use the equivalent configured paths such as `配置/项目配置.md`, `01_草稿/数据清单.md`, `02_参考/风格说明.md`, `02_参考/参考索引.md`, and `02_参考/写作样本`.
 
 For local revisions after a full manuscript already exists, prefer `PaperSmart-revision`. Use this skill only when the requested change is a major rewrite, a new Results/Discussion pass, or a full draft-level revision.
 

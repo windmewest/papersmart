@@ -9,6 +9,15 @@ description: Translate or localize an existing PaperSmart manuscript into polish
 
 Create a Chinese academic version of an existing PaperSmart manuscript. This is a translation and localization workflow, not a new drafting workflow.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. This skill normally writes Chinese output even if the workspace is in English mode.
+
 ## Required Reading
 
 Read from the active project:
@@ -18,6 +27,8 @@ Read from the active project:
 3. `03_output/figures` when figure titles, captions, or labels must match
 4. `03_output/supplement/claim_source_map.md` when claims or terminology need traceability
 5. `02_reference/style_notes.md` if the Chinese version must match a journal style
+
+In Chinese workspace mode, use the equivalent configured paths.
 
 Do not translate from obsolete drafts unless the user explicitly selects them.
 

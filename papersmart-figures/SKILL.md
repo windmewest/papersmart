@@ -11,6 +11,15 @@ Make figures serve the manuscript argument. Figure work starts by defining the c
 
 Use `nature-figure` for journal-grade scientific plotting when its trigger fits. If that skill requires the user to choose Python or R, ask exactly that before plotting.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. If `language` is `zh`, use Chinese folder names and answer in Chinese. If no profile exists, assume English mode.
+
 ## Required Reading
 
 Read from the active project:
@@ -19,9 +28,12 @@ Read from the active project:
 2. `01_draft/data_inventory.md`
 3. `02_reference/style_notes.md`
 4. `02_reference/reference_index.md`
-5. Existing `03_output/supplement/data_analysis_plan.md`, if present
-6. Existing `03_output/supplement/visualization_plan.md`, if present
-7. Relevant source data, images, tables, figure scripts, captions, and target-journal files
+5. Relevant target-journal files and `02_reference/writing_samples`
+6. Existing `03_output/supplement/data_analysis_plan.md`, if present
+7. Existing `03_output/supplement/visualization_plan.md`, if present
+8. Relevant source data, images, tables, figure scripts, and captions
+
+In Chinese mode, use the equivalent configured paths.
 
 ## Workflow
 

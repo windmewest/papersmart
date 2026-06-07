@@ -9,9 +9,18 @@ description: Create or revise PaperSmart manuscript outlines, argument maps, art
 
 Turn rough research materials into a journal-aware, evidence-grounded manuscript outline. The output should be a usable writing blueprint, not a generic section list.
 
+## Language And Path Mode
+
+Before reading project files, read the PaperSmart profile:
+
+- English mode: `shared/memory/papersmart_profile.md`
+- Chinese mode: `共享/记忆/papersmart_profile.md`
+
+Use the configured path map. If `language` is `zh`, use Chinese folder names and answer in Chinese. If no profile exists, assume English mode.
+
 ## Project Selection
 
-1. Identify the active project under `projects/`.
+1. Identify the active project under the configured project root.
 2. If the user names a project, use it.
 3. If only one project exists, use it.
 4. If multiple projects exist and the intended project is unclear, ask before writing.
@@ -25,7 +34,9 @@ Read these files, relative to the active project root, before generating or revi
 3. `01_draft/data_inventory.md`
 4. `02_reference/style_notes.md`
 5. `02_reference/reference_index.md`
-6. Relevant drafts, notes, tables, datasets, figures, target-journal files, and writing samples
+6. Relevant drafts, notes, tables, datasets, figures, target-journal files, and `02_reference/writing_samples`
+
+In Chinese mode, use the equivalent configured paths such as `配置/项目配置.md`, `01_草稿/数据清单.md`, `02_参考/风格说明.md`, `02_参考/参考索引.md`, and `02_参考/写作样本`.
 
 Do not overwrite original files in `01_draft` or `02_reference`.
 
@@ -95,7 +106,7 @@ Source priority:
 ## Evidence Rules
 
 - Do not invent data, methods, results, citations, author details, journal requirements, ethics, funding, conflicts, or acknowledgements.
-- Treat target-journal writing samples as style references unless the manuscript explicitly discusses their substantive claims.
+- Treat target-journal files and writing samples as style references unless the manuscript explicitly discusses their substantive claims.
 - Do not cite style-only samples as scholarly evidence.
 - Keep claims traceable to `01_draft`, `02_reference`, verified literature, generated analysis outputs, or explicit user instructions.
 - Use cautious language when the outline is conceptual and evidence remains to be gathered.
