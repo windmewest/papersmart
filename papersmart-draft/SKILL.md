@@ -9,6 +9,29 @@ description: Generate or substantially revise full PaperSmart manuscripts from a
 
 Draft a complete, traceable, journal-aware manuscript from PaperSmart materials. The draft must be evidence-driven: read sources first, plan analysis and visualization before Results, then write.
 
+## Critical Rule: Keep Conversation Out Of The Manuscript
+
+The manuscript is a scholarly artifact, not a record of the chat. Never place user comments, assistant plans, screenshot provenance, task instructions, or conversational replies into `03_output/manuscript/paper.md`.
+
+Forbidden manuscript language includes:
+
+- Direct references to the user: `the user said`, `the user provided`, `according to the user's comment`, `用户说`, `用户提供`, `用户要求`, `根据用户意见`.
+- Process narration: `here I will`, `I will adopt`, `we need to`, `as requested`, `这里我会`, `接下来我将`, `我采用...而不是...`.
+- Screenshot/chat provenance: `the screenshot provided by the user`, `from the chat`, `用户提供的截图`, `对话中提到`.
+- Assistant self-reference: `I`, `my draft`, `this response`, `I chose this wording`, unless the target manuscript section itself requires first-person authorial language and the journal permits it.
+
+Handle these inputs outside the manuscript:
+
+| Input type | Use it for | Where to record it |
+| --- | --- | --- |
+| User comment or preference | Editorial guidance, style choice, revision priority | `03_output/revision/change_log.md` or `logs/decision_log.md` |
+| Chat instruction | Task scope and constraints | Working notes or logs, not manuscript prose |
+| Screenshot/file provenance | Evidence location or source tracking | Figure/table source note, data inventory, or TODO |
+| Missing author confirmation | A precise placeholder | `TODO:` in the relevant output or supplement |
+| Writing plan | Drafting workflow | `03_output/supplement/*_plan.md` or logs |
+
+If a user comment contains a scientific claim, extract only the claim and verify it against `01_draft`, `02_reference`, data outputs, or literature before it can enter manuscript prose.
+
 ## Language And Path Mode
 
 Before reading project files, read the PaperSmart profile:
@@ -44,22 +67,41 @@ For local revisions after a full manuscript already exists, prefer `PaperSmart-r
 
 1. Define the task boundary: full manuscript, major section rewrite, Results/Discussion generation, literature integration, or journal adaptation.
 2. Extract project constraints: title, article type, target journal, language, authors, research questions, methods, data sources, declarations, and missing information.
-3. Extract journal style from `02_reference/target_journal` when available. Respect heading style, abstract length, figure/table captions, citation style, reference style, and declaration order.
-4. Perform a structured literature search for full manuscript generation, major revisions, introductions, discussions, and literature reviews unless the user explicitly says not to. Derive constraints first: research goal, core concepts, definitions, methods needing support, disciplinary scope, date range, inclusion/exclusion rules, and source priorities.
-5. Save 8-12 key literature conclusions to `03_output/supplement/literature_evidence_matrix.md`. Each conclusion must include evidence strength, high-quality citations, manuscript placement, and caveats.
-6. Audit all available datasets, scoring files, tables, images, statistical outputs, and generated figures before writing Results.
-7. Save `03_output/supplement/data_analysis_plan.md`. State which data are used, which are excluded, what each analysis tests or illustrates, derived quantities to compute, and how each analysis supports the manuscript argument.
-8. Save `03_output/supplement/visualization_plan.md` when data or diagrams are useful. Choose figures because they clarify interpretation, not because files happen to exist.
-9. Generate or update tables in `03_output/tables` and figures in `03_output/figures`. Every table and figure needs a stable file name, concise title, complete caption, data source, and in-text citation.
-10. Create or update `03_output/supplement/claim_source_map.md`, mapping major claims to user materials, data, figures/tables, literature, or TODOs.
-11. Draft `03_output/manuscript/paper.md`, following target journal structure when known.
-12. Update `03_output/revision/change_log.md`; update `logs/writing_log.md` and `logs/decision_log.md` for major writing or evidence decisions.
-13. Run a quality pass before delivery.
+3. Classify all available input as evidence, context, writing sample, user instruction, user comment, or missing-information prompt. Only evidence and verified literature can directly support manuscript claims.
+4. Extract journal style from `02_reference/target_journal` when available. Respect heading style, abstract length, figure/table captions, citation style, reference style, and declaration order.
+5. Build a one-sentence manuscript argument: `In [system/problem], this study shows [advance] using [approach], supported by [evidence], with [boundary].`
+6. Map the full paper before drafting: field-scale need, unresolved bottleneck, proposed move, decisive evidence, implication, and boundary.
+7. Perform a structured literature search for full manuscript generation, major revisions, introductions, discussions, and literature reviews unless the user explicitly says not to. Derive constraints first: research goal, core concepts, definitions, methods needing support, disciplinary scope, date range, inclusion/exclusion rules, and source priorities.
+8. Save 8-12 key literature conclusions to `03_output/supplement/literature_evidence_matrix.md`. Each conclusion must include evidence strength, high-quality citations, manuscript placement, and caveats.
+9. Audit all available datasets, scoring files, tables, images, statistical outputs, and generated figures before writing Results.
+10. Save `03_output/supplement/data_analysis_plan.md`. State which data are used, which are excluded, what each analysis tests or illustrates, derived quantities to compute, and how each analysis supports the manuscript argument.
+11. Save `03_output/supplement/visualization_plan.md` when data or diagrams are useful. Choose figures because they clarify interpretation, not because files happen to exist.
+12. Generate or update tables in `03_output/tables` and figures in `03_output/figures`. Every table and figure needs a stable file name, concise title, complete caption, data source, and in-text citation.
+13. Create or update `03_output/supplement/claim_source_map.md`, mapping major claims to user materials, data, figures/tables, literature, or TODOs.
+14. Draft `03_output/manuscript/paper.md`, following target journal structure when known. Use manuscript voice only. Do not include meta-comments about the user, the assistant, the chat, screenshots, or drafting choices.
+15. Update `03_output/revision/change_log.md`; update `logs/writing_log.md` and `logs/decision_log.md` for major writing or evidence decisions.
+16. Run a quality pass and contamination audit before delivery.
+
+## Nature-Style Drafting Pattern
+
+Use these nature-writing principles for every major section, especially when the target journal is Nature-family or high-impact interdisciplinary:
+
+- Author evidence comes first. Do not write around missing evidence.
+- Write the argument before writing sentences.
+- Use ambitious but bounded claims. Prefer `show`, `demonstrate`, `suggest`, `indicate`, `enable`, `may`, and `could` according to evidence strength.
+- Each paragraph has one job: context, gap, approach, result, comparison, mechanism, implication, or limitation.
+- Each paragraph should have one message, a clear opening sentence, and explicit sentence-to-sentence relations.
+- Results should follow an evidence ladder: system/workflow, validation, main result, baseline comparison, diagnostic analysis, and application or generalization when supported.
+- Discussion should widen from finding to meaning: central advance, evidence meaning, relation to prior work, constraints, and future use.
+- Conclusions introduce no new data, citations, mechanisms, or promises.
+
+For Chinese or mixed Chinese-English author notes, translate intent rather than syntax. Split notes into claim, evidence, condition, comparison, implication, and limitation before drafting English.
 
 ## Writing Standards
 
 - Do not invent data, results, statistics, citations, author details, journal requirements, ethics, funding, conflicts, or acknowledgements.
 - Use precise `TODO:` markers for missing required information.
+- Keep comments, author instructions, chat context, screenshots, and writing plans out of the manuscript body unless they are transformed into verified scientific content.
 - Introduction must integrate literature logic and research gaps, not merely introduce the study.
 - Methods must explain materials, data, models, evaluation methods, analysis boundaries, and reproducibility limits.
 - Results must interpret evidence through findings. Do not merely walk through tables.
@@ -104,16 +146,29 @@ Use companion skills when their trigger fits:
 - Use `nature-citation` when the user asks to add strict Nature/CNS-style citations to claims.
 - Use `humanizer` only when the user asks to remove AI-like writing patterns or make prose sound more natural; preserve scientific caution.
 
+## Manuscript Contamination Audit
+
+Before handoff, scan `03_output/manuscript/paper.md` for conversation leakage. Use the bundled script when a local manuscript file exists:
+
+```bash
+python shared/skills/papersmart-draft/scripts/audit_manuscript_contamination.py --file <active_project>/03_output/manuscript/paper.md
+```
+
+In Chinese mode, use the configured manuscript path. If the script reports high-risk matches, remove them from the manuscript and move any useful decision rationale to logs, revision notes, or supplement files.
+
 ## Quality Pass
 
 Before considering the manuscript ready for human review, check:
 
 - Source integrity and `TODO:` precision.
+- No conversation leakage: no `用户说`, `用户提供`, `the user`, `screenshot provided`, `here I will`, `as requested`, assistant self-reference, or drafting-plan language in manuscript prose.
 - Literature evidence quality and citation consistency.
 - Structure against the target journal.
 - Data analysis plan and visualization plan completeness.
 - Table and figure numbering by first citation order.
 - Claim support for background, methods, results, and discussion claims.
+- Paragraph flow: one paragraph, one message, clear topic sentence, evidence linked to the section thesis.
+- Reviewer-style risk check: unsupported claims, vague contribution, missing method detail, weak comparison, incomplete evaluation, and overbroad conclusion.
 - Reference list consistency.
 - Logs and change records.
 

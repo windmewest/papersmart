@@ -224,6 +224,7 @@ Use $papersmart-draft to generate a full manuscript from the active PaperSmart p
 PaperSmart keeps these boundaries strict:
 
 - Do not invent data, results, citations, author details, ethics statements, funding, conflicts of interest, or acknowledgements.
+- Do not put chat replies, user comments, screenshot provenance, or drafting plans into manuscript prose.
 - Mark missing information with a precise `TODO:`.
 - Keep original materials in the draft and reference folders.
 - Write generated outputs to the output folder.
