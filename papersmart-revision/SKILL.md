@@ -1,6 +1,6 @@
 ---
 name: papersmart-revision
-description: Apply focused local revisions to an existing PaperSmart manuscript while preserving source integrity, evidence traceability, figure/table numbering, citations, and change logs. Use when the user asks for local edits, reviewer-style fixes, section polishing, targeted restructuring, citation cleanup, caption updates, or specific changes after 03_output/manuscript/paper.md already exists.
+description: Apply focused local revisions to an existing PaperSmart manuscript while preserving source integrity, evidence traceability, figure/table numbering, citations, and change logs. Use when the user asks for local edits, reviewer-style fixes, section polishing, targeted restructuring, citation cleanup, caption updates, inline AIGEN/AIPO markers, or specific changes after 03_output/manuscript/paper.md already exists.
 ---
 
 # PaperSmart-revision
@@ -57,6 +57,37 @@ Use these patterns:
 - Reviewer response preparation: preserve a trace from each reviewer request to the manuscript change and change log.
 - Journal adaptation: adjust headings, abstract shape, captions, or declarations only according to verified journal guidance.
 
+## Inline AI Marker Rules
+
+Use these rules when editing Markdown manuscripts or local revision task files that contain inline markers in the form `*content*AIGEN` or `*content*AIPO`.
+
+### `*content*AIGEN`
+
+Treat `AIGEN` as a request to regenerate the marked span from context.
+
+- Read the surrounding paragraph, subsection, section thesis, nearby figure/table references, and claim-source map before rewriting.
+- Replace the entire marked pattern, including the surrounding asterisks and `AIGEN`, with new manuscript-safe prose.
+- Do not merely polish the marked words. Rebuild the content so it fits the argument, evidence boundary, terminology, tense, and paragraph flow.
+- If the marker appears inside a paragraph, preserve the paragraph's single-message logic. If the marked span implies a second message, split or restructure only as much as needed.
+- Do not add new claims, data, citations, author details, or methodology. Use `TODO:` when required evidence is missing.
+- Example: `*近期的讨论*AIGEN` should become a context-specific phrase or sentence supported by the surrounding manuscript logic, not a generic replacement for "recent discussion".
+
+### `*content*AIPO`
+
+Treat `AIPO` as a request to polish and repair the marked span from context.
+
+- Keep the intended meaning unless the surrounding evidence shows the wording is inaccurate.
+- Improve clarity, academic tone, terminology consistency, sentence rhythm, and logical fit with adjacent sentences.
+- Repair repetition, semantic duplication, inconsistent keywords, vague nouns, tense mismatch, and weak transitions.
+- Replace the entire marked pattern, including the surrounding asterisks and `AIPO`, with clean manuscript prose.
+- Do not expand a local polishing marker into a new argument unless the user explicitly asks.
+
+### Marker Cleanup
+
+- No `AIGEN`, `AIPO`, or marker asterisks may remain in the final manuscript unless the user explicitly asks to keep them for review.
+- When multiple markers appear close together, resolve them in reading order and then reread the whole paragraph for coherence.
+- Log the marker pass in `03_output/revision/change_log.md`, noting whether each marker was regenerated (`AIGEN`) or polished (`AIPO`) and whether any TODO remains.
+
 ## Boundaries
 
 - Do not invent data, results, citations, author details, ethics, funding, conflicts, acknowledgements, or journal requirements.
@@ -64,6 +95,7 @@ Use these patterns:
 - Do not convert a local revision into a full rewrite unless the user asks.
 - Do not cite style-only target-journal samples as scholarly evidence.
 - Do not insert conversation markers into manuscript prose, including `用户说`, `用户提供`, `根据用户意见`, `the user said`, `as requested`, `here I will`, or screenshot provenance such as `用户提供的截图`.
+- Do not leave inline work markers such as `AIGEN` or `AIPO` in final manuscript prose unless the user explicitly requests a marked review copy.
 - Use `humanizer` only when the user asks to reduce AI-like prose; preserve scientific caution and citation precision.
 
 ## Author Voice Preferences
@@ -88,5 +120,6 @@ Before finishing, report:
 - Sections changed.
 - Tables, figures, citations, or references updated.
 - Any remaining `TODO:` or author-confirmation item.
+- Whether any `AIGEN` or `AIPO` markers were resolved, and whether any markers remain intentionally.
 - Whether user comments or chat instructions were converted into manuscript-safe scientific changes and logged outside the body text.
 - Whether the task stayed local or should trigger a broader `PaperSmart-draft` pass later.
