@@ -1,0 +1,39 @@
+{
+  "name": "papersmart",
+  "version": "0.3.0",
+  "description": "PaperSmart manuscript workflow skills and slash commands for scientific writing projects.",
+  "author": {
+    "name": "PaperSmart"
+  },
+  "homepage": "https://github.com/windmewest/papersmart",
+  "repository": "https://github.com/windmewest/papersmart",
+  "license": "MIT",
+  "keywords": [
+    "papersmart",
+    "manuscript",
+    "scientific-writing",
+    "academic-writing",
+    "paper",
+    "revision",
+    "submission"
+  ],
+  "skills": "./",
+  "interface": {
+    "displayName": "PaperSmart",
+    "shortDescription": "Manage scientific manuscript projects with PaperSmart",
+    "longDescription": "PaperSmart provides reusable manuscript workflows for workspace initialization, safe updates, new paper projects, outlines, drafting, revisions, translations, figures, and submission packages.",
+    "developerName": "PaperSmart",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/windmewest/papersmart",
+    "defaultPrompt": [
+      "Use PaperSmart to manage a scientific manuscript project"
+    ],
+    "screenshots": [],
+    "brandColor": "#2F6F8F"
+  }
+}

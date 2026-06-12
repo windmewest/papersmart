@@ -167,6 +167,35 @@ flowchart LR
 
 ## Install
 
+PaperSmart can be installed in two ways.
+
+Use **plugin installation** if you want slash commands such as `/papersmart-draft`. Use **skills-only installation** if your assistant only supports direct skill folders.
+
+### Plugin Installation For Slash Commands
+
+Install this repository as a local plugin. The plugin manifest is:
+
+```text
+.codex-plugin/plugin.json
+```
+
+After plugin installation and restart, these slash commands are available:
+
+| Slash command | Routes to |
+| --- | --- |
+| `/papersmart` | Selects the right PaperSmart workflow |
+| `/papersmart-init` | `PaperSmart-init` |
+| `/papersmart-update` | `PaperSmart-update` |
+| `/papersmart-new-project` | `PaperSmart-new-project` |
+| `/papersmart-outline` | `PaperSmart-outline` |
+| `/papersmart-draft` | `PaperSmart-draft` |
+| `/papersmart-revision` | `PaperSmart-revision` |
+| `/papersmart-translation` | `PaperSmart-translation` |
+| `/papersmart-figures` | `PaperSmart-figures` |
+| `/papersmart-submission` | `PaperSmart-submission` |
+
+### Skills-Only Installation
+
 Copy the `papersmart-*` folders into your assistant's local skills directory, then restart that environment.
 
 ```text
@@ -198,6 +227,18 @@ cp -R papersmart-* "<skills-dir>/"
 ```
 
 ## Quick Start
+
+With slash commands:
+
+```text
+/papersmart-init
+```
+
+```text
+/papersmart-draft
+```
+
+With direct skill calls:
 
 ```text
 Use $papersmart-init to initialize a PaperSmart workspace.

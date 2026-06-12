@@ -167,6 +167,35 @@ flowchart LR
 
 ## 安装
 
+PaperSmart 支持两种安装方式。
+
+如果需要 `/papersmart-draft` 这类 slash commands，请使用 **plugin 安装**。如果你的助手环境只支持直接读取技能文件夹，可以使用 **skills-only 安装**。
+
+### 支持 Slash Commands 的 Plugin 安装
+
+将本仓库作为本地 plugin 安装。plugin manifest 位于：
+
+```text
+.codex-plugin/plugin.json
+```
+
+安装并重启后，可以使用这些 slash commands：
+
+| Slash command | 对应流程 |
+| --- | --- |
+| `/papersmart` | 自动选择合适的 PaperSmart 工作流 |
+| `/papersmart-init` | `PaperSmart-init` |
+| `/papersmart-update` | `PaperSmart-update` |
+| `/papersmart-new-project` | `PaperSmart-new-project` |
+| `/papersmart-outline` | `PaperSmart-outline` |
+| `/papersmart-draft` | `PaperSmart-draft` |
+| `/papersmart-revision` | `PaperSmart-revision` |
+| `/papersmart-translation` | `PaperSmart-translation` |
+| `/papersmart-figures` | `PaperSmart-figures` |
+| `/papersmart-submission` | `PaperSmart-submission` |
+
+### Skills-Only 安装
+
 将 `papersmart-*` 文件夹复制到你的助手技能目录，然后重启对应环境。
 
 ```text
@@ -198,6 +227,18 @@ cp -R papersmart-* "<skills-dir>/"
 ```
 
 ## 快速开始
+
+使用 slash commands：
+
+```text
+/papersmart-init
+```
+
+```text
+/papersmart-draft
+```
+
+直接调用 skill：
 
 ```text
 使用 $papersmart-init 初始化 PaperSmart 工作区。
