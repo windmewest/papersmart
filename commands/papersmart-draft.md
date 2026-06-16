@@ -10,7 +10,10 @@ Use the `PaperSmart-draft` skill.
 
 1. Identify the active project and language mode.
 2. Read required project files before writing.
-3. Classify inputs as evidence, context, writing samples, user comments, or task instructions.
+3. Classify the requested artifact type before writing. Use `paper.md` only for formal manuscript prose.
+4. Classify inputs as evidence, context, writing samples, user comments, review/advice artifacts, or task instructions.
+
+If the user asks for review, audit, reviewer comments, modification advice, method improvement, operation steps, `审核`, `审稿`, `修改意见`, `修改建议`, `改进建议`, or `操作步骤`, route the output to `03_output/revision` or `03_output/supplement`; do not create or overwrite `03_output/manuscript/paper.md`.
 
 ## Plan
 
@@ -18,7 +21,7 @@ Create analysis plans, visualization plans, claim-source maps, and manuscript pr
 
 ## Commands
 
-Follow `PaperSmart-draft`. Do not place chat replies, user comments, screenshot provenance, or drafting plans in manuscript prose.
+Follow `PaperSmart-draft`. Do not place chat replies, user comments, screenshot provenance, review reports, modification advice, method-operation plans, or drafting plans in manuscript prose.
 
 ## Verification
 

@@ -1,6 +1,6 @@
 {
   "name": "papersmart",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "PaperSmart manuscript workflow skills and slash commands for scientific writing projects.",
   "author": {
     "name": "PaperSmart"

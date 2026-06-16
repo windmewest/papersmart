@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperSmart-AIREF"
+  short_description: "Resolve AIREF citation-support markers"
+  default_prompt: "Use $papersmart-airef to verify AIREF-marked claims, add suitable citations, and clean the manuscript."

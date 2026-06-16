@@ -11,6 +11,16 @@ Handle local manuscript changes after a draft exists. Keep the change scoped to 
 
 Use `PaperSmart-draft` instead when the user asks for a full manuscript, a major rewrite of the argument, or new Results based on unaudited data.
 
+## Critical Rule: Review Advice Is Not Manuscript Text
+
+Classify the task before editing:
+
+- If the user asks for review, audit, reviewer-style critique, modification advice, method improvement suggestions, action steps, or operation steps, create a Markdown report under `03_output/revision` or `03_output/supplement`. Do not create or overwrite `03_output/manuscript/paper.md`.
+- If the user explicitly asks to implement already accepted changes into the manuscript, then edit `paper.md` and record the change in `03_output/revision/change_log.md`.
+- If the user asks for both advice and implementation, separate the artifacts: advice/report in `03_output/revision` or `03_output/supplement`, manuscript changes in `03_output/manuscript/paper.md`.
+
+Chinese triggers such as `审核`, `审稿`, `评审`, `修改意见`, `修改建议`, `改进建议`, `方法改进`, `操作步骤`, and `审核意见` are review/advice tasks by default, not manuscript-generation tasks. Match review/advice output language to the manuscript's primary language unless the user specifies otherwise.
+
 ## Language And Path Mode
 
 Before reading project files, read the PaperSmart profile:
@@ -32,19 +42,20 @@ Read from the active project:
 
 In Chinese mode, use the equivalent configured paths.
 
-If the task references reviewer comments or an editor decision letter, read those files before editing.
+If the task references reviewer comments or an editor decision letter, read those files before editing. If the user only asks you to summarize, evaluate, or expand those comments, write a review/advice artifact outside `paper.md`.
 
 ## Workflow
 
-1. Identify the exact requested change and the affected manuscript sections.
-2. Check whether the requested change requires evidence from `01_draft`, `02_reference`, `03_output/tables`, `03_output/figures`, or verified literature.
-3. Treat user comments, reviewer comments, screenshots, and chat instructions as guidance, not manuscript prose. Extract the scientific change they imply; do not paste or paraphrase the conversational wrapper into the paper.
-4. Apply only the requested local change. Do not opportunistically rewrite unrelated sections.
-5. If the revision affects a table, figure, caption, in-text citation, reference entry, declaration, or numbering sequence, update the linked artifacts in the same pass.
-6. Preserve all unsupported or missing information as precise `TODO:` markers.
-7. Keep citation numbers continuous and ordered by first appearance when using a numbered style.
-8. Update `03_output/revision/change_log.md`.
-9. If the change is substantial, update `logs/writing_log.md` or `logs/decision_log.md`.
+1. Identify whether this is implementation into the manuscript or advice/report generation. Stop before editing `paper.md` if the request is advice-only.
+2. Identify the exact requested change and the affected manuscript sections.
+3. Check whether the requested change requires evidence from `01_draft`, `02_reference`, `03_output/tables`, `03_output/figures`, or verified literature.
+4. Treat user comments, reviewer comments, screenshots, and chat instructions as guidance, not manuscript prose. Extract the scientific change they imply; do not paste or paraphrase the conversational wrapper into the paper.
+5. Apply only the requested local change. Do not opportunistically rewrite unrelated sections.
+6. If the revision affects a table, figure, caption, in-text citation, reference entry, declaration, or numbering sequence, update the linked artifacts in the same pass.
+7. Preserve all unsupported or missing information as precise `TODO: [specific missing evidence or action]` markers.
+8. Keep citation numbers continuous and ordered by first appearance when using a numbered style.
+9. Update `03_output/revision/change_log.md`.
+10. If the change is substantial, update `logs/writing_log.md` or `logs/decision_log.md`.
 
 ## Revision Types
 
@@ -84,23 +95,29 @@ Treat `AIPO` as a request to polish and repair the marked span from context.
 
 ### Marker Cleanup
 
-- No `AIGEN`, `AIPO`, or marker asterisks may remain in the final manuscript unless the user explicitly asks to keep them for review.
+- No `AIGEN`, `AIPO`, `AIREF`, or marker asterisks may remain in the final manuscript unless the user explicitly asks to keep them for review.
 - When multiple markers appear close together, resolve them in reading order and then reread the whole paragraph for coherence.
 - Log the marker pass in `03_output/revision/change_log.md`, noting whether each marker was regenerated (`AIGEN`) or polished (`AIPO`) and whether any TODO remains.
+- If a marker contains a claim whose evidence is not closed, do not write a workaround sentence. Replace it with `TODO: [specific missing evidence or action]` or move the unsupported material out of the manuscript.
+- If a journal or institution requires AI-use disclosure, summarize resolved marker work in a formal disclosure statement rather than leaving `AIGEN` or `AIPO` labels in the article body.
 
 ## Boundaries
 
 - Do not invent data, results, citations, author details, ethics, funding, conflicts, acknowledgements, or journal requirements.
 - Do not overwrite original files in `01_draft` or `02_reference`.
 - Do not convert a local revision into a full rewrite unless the user asks.
+- Do not convert review reports, audit findings, modification advice, action plans, or method-operation steps into manuscript prose unless the user explicitly asks to implement them and they are evidence-supported.
+- Do not write advice-only artifacts to `03_output/manuscript/paper.md`.
 - Do not cite style-only target-journal samples as scholarly evidence.
 - Do not insert conversation markers into manuscript prose, including `用户说`, `用户提供`, `根据用户意见`, `the user said`, `as requested`, `here I will`, or screenshot provenance such as `用户提供的截图`.
-- Do not leave inline work markers such as `AIGEN` or `AIPO` in final manuscript prose unless the user explicitly requests a marked review copy.
+- Do not leave inline work markers such as `AIGEN`, `AIPO`, or `AIREF` in final manuscript prose unless the user explicitly requests a marked review copy.
+- Do not turn unresolved evidence into manuscript commentary about why the gap is acceptable, cautious, temporary, or publishable. Keep the manuscript formal and place the decision rationale in revision notes, supplement files, or logs.
 - Use `humanizer` only when the user asks to reduce AI-like prose; preserve scientific caution and citation precision.
 
 ## Author Voice Preferences
 
-- For Dong Xiaoxiao's PaperSmart manuscripts, avoid disclaimer-like sentences that weaken the argument, especially formulations such as "this comparison does not mean X is equivalent to Y" when the real task is to justify sample selection.
+- When a project contains author-specific style preferences, generalize them into manuscript-safe writing rules before applying them.
+- Avoid disclaimer-like sentences that weaken the argument when the real task is to justify sample selection or comparison logic.
 - When using comparisons across fields, state the positive selection logic directly: shared adoption intensity, responsibility intensity, evidence base, or argumentative role.
 - Reserve limitation statements for real methodological constraints, and write them as method notes rather than defensive disclaimers.
 - Avoid repeated negative parallelisms such as "not X but Y" unless the contrast is essential to the argument.

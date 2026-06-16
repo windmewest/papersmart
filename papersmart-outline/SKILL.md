@@ -49,7 +49,7 @@ Do not overwrite original files in `01_draft` or `02_reference`.
 5. Derive literature-search constraints for major outlines, introductions, discussions, reviews, or full-paper preparation unless the user explicitly says not to search. Save a search frame when useful.
 6. Create the section plan. Each section should have a function, central claim, evidence to use, likely citations, figure/table needs, and TODOs.
 7. Create a figure/table plan if visual evidence or conceptual diagrams are central to the paper. Figures must serve the argument, not decorate it.
-8. Mark unsupported or missing material with precise `TODO:` notes.
+8. Mark unsupported or missing material with precise `TODO: [specific missing evidence or action]` notes.
 9. Save the outline to `03_output/manuscript/paper_outline.md` unless the user specifies another path.
 
 ## Outline Shape
@@ -110,6 +110,7 @@ Source priority:
 - Do not cite style-only samples as scholarly evidence.
 - Keep claims traceable to `01_draft`, `02_reference`, verified literature, generated analysis outputs, or explicit user instructions.
 - Use cautious language when the outline is conceptual and evidence remains to be gathered.
+- Do not treat unresolved examples, cases, financial claims, operational claims, or literature gaps as settled outline claims. Either remove them from the core argument or mark the exact missing source with `TODO: [specific missing evidence or action]`.
 
 ## Output Updates
 

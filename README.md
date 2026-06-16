@@ -18,6 +18,7 @@ Use it when a paper has more than a single draft file: data tables, figures, jou
 | [`PaperSmart-outline`](papersmart-outline/SKILL.md) | You need the argument before drafting | Thesis, section plan, evidence plan, figure and table plan |
 | [`PaperSmart-draft`](papersmart-draft/SKILL.md) | You need a full draft or major rewrite | Manuscript plus analysis, literature, visualization, and claim-source files |
 | [`PaperSmart-revision`](papersmart-revision/SKILL.md) | A manuscript exists and needs focused edits | Revised text, synchronized citations, figure and table updates, change log |
+| [`PaperSmart-AIREF`](papersmart-airef/SKILL.md) | A manuscript contains `*content*AIREF` markers | Verified citation support, narrowed claims when needed, and citation decision logs |
 | [`PaperSmart-translation`](papersmart-translation/SKILL.md) | You need a Chinese academic version | `paper_zh.md` and translation notes |
 | [`PaperSmart-figures`](papersmart-figures/SKILL.md) | You need figure planning, generation, captions, or QA | Figure files, captions, visualization plan |
 | [`PaperSmart-submission`](papersmart-submission/SKILL.md) | You are preparing a journal package | Title page, anonymized manuscript, declarations, cover letter, checklist |
@@ -190,6 +191,7 @@ After plugin installation and restart, these slash commands are available:
 | `/papersmart-outline` | `PaperSmart-outline` |
 | `/papersmart-draft` | `PaperSmart-draft` |
 | `/papersmart-revision` | `PaperSmart-revision` |
+| `/papersmart-airef` | `PaperSmart-AIREF` |
 | `/papersmart-translation` | `PaperSmart-translation` |
 | `/papersmart-figures` | `PaperSmart-figures` |
 | `/papersmart-submission` | `PaperSmart-submission` |
@@ -206,6 +208,7 @@ Copy the `papersmart-*` folders into your assistant's local skills directory, th
   papersmart-outline/
   papersmart-draft/
   papersmart-revision/
+  papersmart-airef/
   papersmart-translation/
   papersmart-figures/
   papersmart-submission/
@@ -260,18 +263,39 @@ Use $papersmart-outline to create an evidence-grounded outline for the active Pa
 Use $papersmart-draft to generate a full manuscript from the active PaperSmart project materials.
 ```
 
+```text
+Use $papersmart-airef to resolve AIREF-marked claims with verified citations.
+```
+
 ## Writing Boundaries
 
 PaperSmart keeps these boundaries strict:
 
 - Do not invent data, results, citations, author details, ethics statements, funding, conflicts of interest, or acknowledgements.
 - Do not put chat replies, user comments, screenshot provenance, or drafting plans into manuscript prose.
-- Mark missing information with a precise `TODO:`.
+- Mark missing information with `TODO: [specific missing evidence or action]`.
+- Do not explain open evidence gaps inside manuscript prose. Keep the article voice formal; put evidence decisions in revision notes, supplement files, or logs.
 - Keep original materials in the draft and reference folders.
 - Write generated outputs to the output folder.
 - Analyze before writing Results. Do not just restate table contents.
 - Give every table and figure a stable file name, title, caption, source note, and in-text citation.
 - Keep major claims traceable to source materials, data, figures, tables, literature, or explicit author instructions.
+
+## AIGEN, AIPO, And AIREF
+
+PaperSmart supports inline editing markers in draft and revision workflows:
+
+- `*content*AIGEN` means regenerate the marked span as substantive manuscript prose from the surrounding context and verified evidence.
+- `*content*AIPO` means polish the marked span while preserving its meaning.
+- `*content*AIREF` means verify the marked claim, find suitable scholarly or authoritative support, add citation markers, and narrow the claim when the evidence requires it.
+
+Resolve these markers before final manuscript handoff unless the user explicitly requests a marked review copy. These markers are workflow instructions, not evidence by themselves. If the evidence is missing, use `TODO: [specific missing evidence or action]` instead.
+
+If a journal, institution, or publisher requires AI-use disclosure, summarize AI assistance in a formal declaration or cover material. Do not leave scattered `AIGEN` or `AIPO` labels in the article body.
+
+## Public Sync Privacy
+
+Before publishing PaperSmart skill updates to GitHub, scrub the content for personal names, scholar names, local paths, private project titles, unpublished manuscript details, memory excerpts, institutional documents, client/user identifiers, and project-specific evidence. Public skill docs should contain generic workflow guidance only.
 
 ## License
 

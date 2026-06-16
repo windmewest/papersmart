@@ -13,10 +13,16 @@ PATTERNS = [
     ("chat_reference_en", re.compile(r"\b(in the chat|this conversation|as requested|as discussed above|in this response)\b", re.I)),
     ("screenshot_provenance_en", re.compile(r"\b(screenshot provided by|user'?s screenshot|provided screenshot|attached screenshot)\b", re.I)),
     ("assistant_plan_en", re.compile(r"\b(here I will|I will adopt|I chose|I have chosen|we need to|this draft will|my draft)\b", re.I)),
+    ("review_artifact_en", re.compile(r"\b(reviewer report|review comments|review opinion|revision advice|modification advice|audit opinion|pre-?submission review|major revision request|minor revision request|method improvement operations plan|operations plan|action plan for revision)\b", re.I)),
+    ("evidence_gap_commentary_en", re.compile(r"\b(evidence can be completed later|does not affect publishability|does not weaken the paper|this treatment is more publishable|can be supplemented later|temporarily not treated as settled)\b", re.I)),
+    ("inline_ai_marker", re.compile(r"\bAIGEN\b|\bAIPO\b|\bAIREF\b")),
+    ("todo_without_brackets", re.compile(r"\bTODO:(?!\s*\[)")),
     ("user_reference_zh", re.compile(r"(用户|作者)(提供|指出|表示|说|认为|要求|希望|建议|强调)")),
     ("chat_reference_zh", re.compile(r"(根据用户|按照用户|回应用户|对话中|聊天中|如上所述|这里我会|接下来我将|我会采用|我将采用)")),
     ("screenshot_provenance_zh", re.compile(r"(用户提供的截图|用户截图|截图中可以看到|截图显示)")),
     ("assistant_plan_zh", re.compile(r"(这里采用|本文这里会|我在这里|我选择|我会|我将)")),
+    ("review_artifact_zh", re.compile(r"(审核意见|审稿意见|评审意见|评阅意见|审稿报告|预审意见|修改意见|修改建议|改进建议|建议作者|作者应|方法改进步骤|操作步骤|审核结论|审稿人意见|正式稿中建议|需要在改进过程中)")),
+    ("evidence_gap_commentary_zh", re.compile(r"(证据不足后期可以补全|不影响论文发表|不影响发表|不削弱问题意识|更可发表|暂不把|暂时不把|后续可以补全|这种处理并不削弱)")),
 ]
 
 

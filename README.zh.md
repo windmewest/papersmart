@@ -18,6 +18,7 @@ PaperSmart 是一组用于科研论文项目的可复用技能。它不是“一
 | [`PaperSmart-outline`](papersmart-outline/SKILL.md) | 正式起草前梳理论证 | 核心论点、章节计划、证据计划、图表计划 |
 | [`PaperSmart-draft`](papersmart-draft/SKILL.md) | 生成全文初稿或大幅重写 | 正文，以及分析、文献、可视化、主张来源文件 |
 | [`PaperSmart-revision`](papersmart-revision/SKILL.md) | 已有正文后做局部修改 | 修订后的文字、同步后的引用和图表、修改记录 |
+| [`PaperSmart-AIREF`](papersmart-airef/SKILL.md) | 正文含有 `*内容*AIREF` 标记 | 已验证的引用支持、必要时收窄后的主张、引用决策记录 |
 | [`PaperSmart-translation`](papersmart-translation/SKILL.md) | 需要中文学术版本 | `paper_zh.md` 和翻译说明 |
 | [`PaperSmart-figures`](papersmart-figures/SKILL.md) | 规划、生成或检查论文图表 | 图表文件、题注、可视化计划 |
 | [`PaperSmart-submission`](papersmart-submission/SKILL.md) | 准备期刊投稿包 | 标题页、匿名稿、声明、投稿信、检查清单 |
@@ -190,6 +191,7 @@ PaperSmart 支持两种安装方式。
 | `/papersmart-outline` | `PaperSmart-outline` |
 | `/papersmart-draft` | `PaperSmart-draft` |
 | `/papersmart-revision` | `PaperSmart-revision` |
+| `/papersmart-airef` | `PaperSmart-AIREF` |
 | `/papersmart-translation` | `PaperSmart-translation` |
 | `/papersmart-figures` | `PaperSmart-figures` |
 | `/papersmart-submission` | `PaperSmart-submission` |
@@ -206,6 +208,7 @@ PaperSmart 支持两种安装方式。
   papersmart-outline/
   papersmart-draft/
   papersmart-revision/
+  papersmart-airef/
   papersmart-translation/
   papersmart-figures/
   papersmart-submission/
@@ -260,18 +263,39 @@ cp -R papersmart-* "<skills-dir>/"
 使用 $papersmart-draft 根据当前 PaperSmart 项目材料生成完整论文初稿。
 ```
 
+```text
+使用 $papersmart-airef 为 AIREF 标记的主张补充已验证引用。
+```
+
 ## 写作边界
 
 PaperSmart 的底线明确：
 
 - 不编造数据、结果、引用、作者信息、伦理声明、基金、利益冲突或致谢。
 - 不把聊天回复、用户评论、截图来源说明或写作计划写进论文正文。
-- 缺失信息写成精确的 `TODO:`。
+- 缺失信息写成 `TODO: [具体缺失证据或待执行动作]`。
+- 不在论文正文里解释证据缺口为什么可以后补、为什么不影响发表、为什么暂时保留。论文正文保持正式学术语气，相关判断写入修订记录、补充材料或日志。
 - 原始材料留在草稿和参考目录。
 - 生成物写入输出目录。
 - Results 先分析再写，不机械复述表格内容。
 - 每张图和每张表都要有稳定文件名、标题、题注、来源说明和正文引用。
 - 重要主张必须能追溯到原始材料、数据、图表、文献或明确的作者指示。
+
+## AIGEN、AIPO 与 AIREF
+
+PaperSmart 支持在草稿和修订流程中使用行内编辑标记：
+
+- `*内容*AIGEN` 表示根据上下文和已验证证据，重新生成这段实质性正文。
+- `*内容*AIPO` 表示在不改变原意的前提下润色这段文字。
+- `*内容*AIREF` 表示核验这条主张，寻找合适的学术或权威来源，加入引用标记，并在证据只支持较窄表述时同步收窄主张。
+
+最终交付前应清除这些标记，除非用户明确要求保留标记版供审阅。它们只是工作流指令，本身不是证据。证据不足时，使用 `TODO: [具体缺失证据或待执行动作]`。
+
+如果期刊、机构或出版方要求披露 AI 辅助，应把这些工作流记录整理成正式的 AI 使用声明或投稿说明，不要把零散的 `AIGEN`、`AIPO` 留在论文正文中。
+
+## 公开同步隐私规则
+
+同步 PaperSmart skill 到 GitHub 前，必须移除个人姓名、学者姓名、本地路径、私人项目标题、未发表论文细节、记忆文件摘录、机构内部材料、用户或客户标识，以及项目特定证据。公开 skill 文档只保留通用工作流规则。
 
 ## 许可证
 

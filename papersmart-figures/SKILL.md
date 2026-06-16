@@ -68,6 +68,8 @@ Consider:
 - Preserve original image orientation in composite figures unless source evidence requires rotation.
 - Verify orientation against the original files, especially photographs and user-flagged orientation-sensitive images.
 - Keep figure numbering in first-citation order when integrating into the manuscript.
+- In Markdown manuscript bodies, do not add visible local image file paths or address lines after figures. Keep only the figure image, title, caption, and concise source note; hidden Markdown image links may still contain the path needed for rendering.
+- For manuscript SVG figures, do not place explanatory small-print notes, source notes, method notes, or file addresses inside the SVG. Keep the diagram itself clean and move explanation to the manuscript body, caption, source note, or formal note section.
 
 ## Visualization Plan Shape
 
