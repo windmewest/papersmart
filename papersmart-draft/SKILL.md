@@ -90,6 +90,43 @@ Use the configured path map. If `language` is `zh`, use Chinese folder names and
 3. If only one project exists, use it.
 4. If multiple projects exist and the intended project is unclear, ask before writing.
 
+## Clarification Gate
+
+Use a grill-me style clarification gate before drafting or major rewriting when ambiguity could change the manuscript's argument, evidence strength, artifact type, target journal fit, analysis plan, or section content. Do not ask questions for low-risk defaults that can be handled with explicit `TODO: [specific missing evidence or action]` placeholders.
+
+Ask when any of these points are unclear or conflicting:
+
+- Whether the requested output is manuscript prose, revision advice, review report, supplement plan, translation, or submission material.
+- Active project, target journal, article type, target language, manuscript section, or expected output path.
+- Core thesis, research question, contribution level, comparison baseline, theoretical frame, or intended audience.
+- Which datasets, notes, figures, tables, writing samples, screenshots, comments, or review artifacts are evidence rather than context.
+- Whether missing evidence should pause drafting, narrow the claim, or remain as a precise TODO.
+- Whether literature retrieval should be broad, strict Nature/CNS style, recent-only, discipline-specific, or limited to supplied references.
+- Whether Results should wait for analysis/figures or proceed as a structured placeholder draft.
+
+Question rules:
+
+- Ask at most 1-3 questions per gate. Choose the uncertainties most likely to change the manuscript.
+- Each question must include 2-3 concrete options and one final custom-input option.
+- Mark one option as `(Recommended)` when a defensible default exists. The recommended option should usually preserve evidence integrity, formal manuscript voice, and manuscript/revision boundaries.
+- Explain the impact or tradeoff of each option in one short sentence.
+- In Chinese mode, ask in Chinese and label the final option as `自行输入`. In English mode, ask in English and label it as `Other / custom input`.
+- After the user answers, continue from the answer and record material decisions in `logs/decision_log.md`, `logs/writing_log.md`, `03_output/revision/change_log.md`, or the relevant supplement file.
+- Never copy the clarification question, options, user answer, or assistant reasoning into `03_output/manuscript/paper.md`. Use the answer only to guide formal manuscript prose, plans, logs, or TODOs.
+
+Use this format:
+
+```markdown
+**Clarification Gate**
+I need one decision before I continue: <question>
+
+Options:
+A. <option> (Recommended) - <impact/tradeoff>
+B. <option> - <impact/tradeoff>
+C. <option> - <impact/tradeoff>
+D. Other / custom input - Write your own instruction.
+```
+
 ## Required Reading
 
 Read in this order before generating or revising a full manuscript:
@@ -110,20 +147,21 @@ For local revisions after a full manuscript already exists, prefer `PaperSmart-r
 1. Classify the artifact type first. Continue this workflow only for a manuscript or major manuscript rewrite. Route review reports, revision advice, method-operation steps, and checklists to `03_output/revision` or `03_output/supplement`.
 2. Define the task boundary: full manuscript, major section rewrite, Results/Discussion generation, literature integration, or journal adaptation.
 3. Extract project constraints: title, article type, target journal, language, authors, research questions, methods, data sources, declarations, and missing information.
-4. Classify all available input as evidence, context, writing sample, user instruction, user comment, review/advice artifact, or missing-information prompt. Only evidence and verified literature can directly support manuscript claims.
-5. Extract journal style from `02_reference/target_journal` when available. Respect heading style, abstract length, figure/table captions, citation style, reference style, and declaration order.
-6. Build a one-sentence manuscript argument: `In [system/problem], this study shows [advance] using [approach], supported by [evidence], with [boundary].`
-7. Map the full paper before drafting: field-scale need, unresolved bottleneck, proposed move, decisive evidence, implication, and boundary.
-8. Perform a structured literature search for full manuscript generation, major revisions, introductions, discussions, and literature reviews unless the user explicitly says not to. Derive constraints first: research goal, core concepts, definitions, methods needing support, disciplinary scope, date range, inclusion/exclusion rules, and source priorities.
-9. Save 8-12 key literature conclusions to `03_output/supplement/literature_evidence_matrix.md`. Each conclusion must include evidence strength, high-quality citations, manuscript placement, and caveats.
-10. Audit all available datasets, scoring files, tables, images, statistical outputs, and generated figures before writing Results.
-11. Save `03_output/supplement/data_analysis_plan.md`. State which data are used, which are excluded, what each analysis tests or illustrates, derived quantities to compute, and how each analysis supports the manuscript argument.
-12. Save `03_output/supplement/visualization_plan.md` when data or diagrams are useful. Choose figures because they clarify interpretation, not because files happen to exist.
-13. Generate or update tables in `03_output/tables` and figures in `03_output/figures`. Every table and figure needs a stable file name, concise title, complete caption, data source, and in-text citation.
-14. Create or update `03_output/supplement/claim_source_map.md`, mapping major claims to user materials, data, figures/tables, literature, or `TODO: [specific missing evidence or action]`.
-15. Draft `03_output/manuscript/paper.md`, following target journal structure when known. Use manuscript voice only. Do not include meta-comments about the user, the assistant, the chat, screenshots, review comments, revision advice, method-operation steps, drafting choices, or explanations that evidence gaps can be filled later.
-16. Update `03_output/revision/change_log.md`; update `logs/writing_log.md` and `logs/decision_log.md` for major writing or evidence decisions.
-17. Run a quality pass and contamination audit before delivery.
+4. Run the clarification gate if any high-impact uncertainty remains after artifact classification and required reading.
+5. Classify all available input as evidence, context, writing sample, user instruction, user comment, review/advice artifact, or missing-information prompt. Only evidence and verified literature can directly support manuscript claims.
+6. Extract journal style from `02_reference/target_journal` when available. Respect heading style, abstract length, figure/table captions, citation style, reference style, and declaration order.
+7. Build a one-sentence manuscript argument: `In [system/problem], this study shows [advance] using [approach], supported by [evidence], with [boundary].`
+8. Map the full paper before drafting: field-scale need, unresolved bottleneck, proposed move, decisive evidence, implication, and boundary.
+9. Perform a structured literature search for full manuscript generation, major revisions, introductions, discussions, and literature reviews unless the user explicitly says not to. Derive constraints first: research goal, core concepts, definitions, methods needing support, disciplinary scope, date range, inclusion/exclusion rules, and source priorities.
+10. Save 8-12 key literature conclusions to `03_output/supplement/literature_evidence_matrix.md`. Each conclusion must include evidence strength, high-quality citations, manuscript placement, and caveats.
+11. Audit all available datasets, scoring files, tables, images, statistical outputs, and generated figures before writing Results.
+12. Save `03_output/supplement/data_analysis_plan.md`. State which data are used, which are excluded, what each analysis tests or illustrates, derived quantities to compute, and how each analysis supports the manuscript argument.
+13. Save `03_output/supplement/visualization_plan.md` when data or diagrams are useful. Choose figures because they clarify interpretation, not because files happen to exist.
+14. Generate or update tables in `03_output/tables` and figures in `03_output/figures`. Every table and figure needs a stable file name, concise title, complete caption, data source, and in-text citation.
+15. Create or update `03_output/supplement/claim_source_map.md`, mapping major claims to user materials, data, figures/tables, literature, or `TODO: [specific missing evidence or action]`.
+16. Draft `03_output/manuscript/paper.md`, following target journal structure when known. Use manuscript voice only. Do not include meta-comments about the user, the assistant, the chat, screenshots, review comments, revision advice, method-operation steps, drafting choices, clarification questions, selected options, or explanations that evidence gaps can be filled later.
+17. Update `03_output/revision/change_log.md`; update `logs/writing_log.md` and `logs/decision_log.md` for major writing or evidence decisions.
+18. Run a quality pass and contamination audit before delivery.
 
 ## Nature-Style Drafting Pattern
 

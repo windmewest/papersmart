@@ -34,6 +34,12 @@ Later PaperSmart skills read `papersmart_profile.md` and answer in the configure
 | English | `shared/memory/papersmart_profile.md` | `projects/`, `shared/`, `01_draft/`, `02_reference/`, `03_output/` | English |
 | Chinese | `共享/记忆/papersmart_profile.md` | `项目/`, `共享/`, `01_草稿/`, `02_参考/`, `03_输出/` | Chinese |
 
+## Clarification Gate
+
+`PaperSmart-outline` and `PaperSmart-draft` include a grill-me style clarification gate. When the active project, target journal, article type, thesis, evidence boundary, source authority, analysis readiness, or literature-search scope is ambiguous, PaperSmart pauses and asks a small set of decision questions before writing.
+
+Each question uses concrete options, marks one defensible default as `(Recommended)`, and keeps a final custom-input option for the author. Material decisions are recorded in logs or supplement files, not in the manuscript body.
+
 ## Folder Structure
 
 English mode:

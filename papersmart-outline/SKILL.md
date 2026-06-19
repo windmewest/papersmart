@@ -25,6 +25,41 @@ Use the configured path map. If `language` is `zh`, use Chinese folder names and
 3. If only one project exists, use it.
 4. If multiple projects exist and the intended project is unclear, ask before writing.
 
+## Clarification Gate
+
+Use a grill-me style clarification gate before outlining when ambiguity could change the manuscript's direction, evidence boundary, journal fit, or section structure. Do not ask questions for low-risk defaults that can be recorded as TODOs.
+
+Ask when any of these points are unclear or conflicting:
+
+- Active project, article type, target journal, target language, or intended audience.
+- Core research question, central contribution, study boundary, or preferred theoretical frame.
+- Whether to build a conservative evidence-first outline or a more ambitious high-impact argument.
+- Which sources, datasets, writing samples, cases, figures, or tables are authoritative.
+- Whether missing information should pause the outline or remain as `TODO: [specific missing evidence or action]`.
+- Whether literature search should be broad, journal-family specific, recent-only, or limited to user-provided sources.
+
+Question rules:
+
+- Ask at most 1-3 questions per gate. Choose the highest-impact uncertainties first.
+- Each question must include 2-3 concrete options and one final custom-input option.
+- Mark one option as `(Recommended)` when a defensible default exists. The recommended option should usually be conservative and evidence-safe.
+- Explain the impact or tradeoff of each option in one short sentence.
+- In Chinese mode, ask in Chinese and label the final option as `自行输入`. In English mode, ask in English and label it as `Other / custom input`.
+- After the user answers, continue from the answer and record material decisions in `logs/decision_log.md` or `03_output/supplement/outline_decisions.md` when they affect later drafting.
+
+Use this format:
+
+```markdown
+**Clarification Gate**
+I need one decision before I continue: <question>
+
+Options:
+A. <option> (Recommended) - <impact/tradeoff>
+B. <option> - <impact/tradeoff>
+C. <option> - <impact/tradeoff>
+D. Other / custom input - Write your own instruction.
+```
+
 ## Required Reading
 
 Read these files, relative to the active project root, before generating or revising an outline:
@@ -43,14 +78,15 @@ Do not overwrite original files in `01_draft` or `02_reference`.
 ## Workflow
 
 1. Extract constraints: working title, article type, target journal, language, research object, core question, study scope, available evidence, missing information, and forbidden assumptions.
-2. Extract journal style: heading depth, abstract shape, reference style, table/figure expectations, declaration order, word limits, and whether headings should be numbered.
-3. Build the central claim. State the paper's one-sentence thesis and the main argumentative turn that distinguishes it from a descriptive report.
-4. Audit evidence at outline level. Separate user-provided materials, data/figures/tables, literature anchors, style-only references, and unsupported claims.
-5. Derive literature-search constraints for major outlines, introductions, discussions, reviews, or full-paper preparation unless the user explicitly says not to search. Save a search frame when useful.
-6. Create the section plan. Each section should have a function, central claim, evidence to use, likely citations, figure/table needs, and TODOs.
-7. Create a figure/table plan if visual evidence or conceptual diagrams are central to the paper. Figures must serve the argument, not decorate it.
-8. Mark unsupported or missing material with precise `TODO: [specific missing evidence or action]` notes.
-9. Save the outline to `03_output/manuscript/paper_outline.md` unless the user specifies another path.
+2. Run the clarification gate if any high-impact uncertainty remains after required reading.
+3. Extract journal style: heading depth, abstract shape, reference style, table/figure expectations, declaration order, word limits, and whether headings should be numbered.
+4. Build the central claim. State the paper's one-sentence thesis and the main argumentative turn that distinguishes it from a descriptive report.
+5. Audit evidence at outline level. Separate user-provided materials, data/figures/tables, literature anchors, style-only references, and unsupported claims.
+6. Derive literature-search constraints for major outlines, introductions, discussions, reviews, or full-paper preparation unless the user explicitly says not to search. Save a search frame when useful.
+7. Create the section plan. Each section should have a function, central claim, evidence to use, likely citations, figure/table needs, and TODOs.
+8. Create a figure/table plan if visual evidence or conceptual diagrams are central to the paper. Figures must serve the argument, not decorate it.
+9. Mark unsupported or missing material with precise `TODO: [specific missing evidence or action]` notes.
+10. Save the outline to `03_output/manuscript/paper_outline.md` unless the user specifies another path.
 
 ## Outline Shape
 

@@ -11,10 +11,11 @@ Use the `PaperSmart-outline` skill.
 1. Identify the active project.
 2. Read required project config, draft inventory, style notes, reference index, and relevant source files.
 3. Check whether target journal constraints exist.
+4. Run the clarification gate when project scope, core thesis, evidence boundary, target journal, source authority, or literature-search scope is ambiguous.
 
 ## Plan
 
-Build the manuscript argument, section plan, evidence plan, and figure/table plan.
+Build the manuscript argument, section plan, evidence plan, and figure/table plan. When clarification is needed, ask 1-3 high-impact questions with 2-3 options, one `(Recommended)` option, and a final custom-input option.
 
 ## Commands
 

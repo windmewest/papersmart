@@ -34,6 +34,12 @@ PaperSmart 是一组用于科研论文项目的可复用技能。它不是“一
 | 英文 | `shared/memory/papersmart_profile.md` | `projects/`、`shared/`、`01_draft/`、`02_reference/`、`03_output/` | 英文 |
 | 中文 | `共享/记忆/papersmart_profile.md` | `项目/`、`共享/`、`01_草稿/`、`02_参考/`、`03_输出/` | 中文 |
 
+## 澄清提问机制
+
+`PaperSmart-outline` 和 `PaperSmart-draft` 内置类似 grill me 的澄清提问机制。当当前项目、目标期刊、文章类型、核心论点、证据边界、资料权威性、数据分析准备状态或文献检索范围存在会影响写作方向的不确定性时，PaperSmart 会先暂停并提出少量关键问题。
+
+每个问题会给出明确选项，标注一个可辩护的 `(Recommended)` 默认选项，并保留最后一个 `自行输入` 选项。重要决定会记录在日志或补充文件中，不会写入论文正文。
+
 ## 文件结构
 
 英文模式：

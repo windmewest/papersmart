@@ -11,6 +11,7 @@ Route the user's request to the smallest suitable PaperSmart skill.
 1. Identify whether the user wants workspace setup, workspace update, a new project, outline, draft, revision, translation, figures, or submission.
 2. Read `shared/memory/papersmart_profile.md` or `共享/记忆/papersmart_profile.md` when a workspace already exists.
 3. If multiple projects exist and no active project is clear, ask before writing.
+4. When routing to `PaperSmart-outline` or `PaperSmart-draft`, preserve that skill's clarification gate before outline or manuscript writing.
 
 ## Plan
 
